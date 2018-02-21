@@ -72,14 +72,21 @@ class ObjectManager(PublisherMixin):
   
     
     def __init__(self, owner):
-        self._ownerref = weakref.ref(owner)
-        self._types = ObjectManager._types
-        self._currentobjectids = ObjectManager._currentobjectids
-        self._parenttidmap = ObjectManager._parenttidmap        
-        self._data = ObjectManager._data
-        self._parentuidmap = ObjectManager._parentuidmap
-        self._childrenuidmap = ObjectManager._childrenuidmap
-        log.debug('ObjectManager new instance was solicitated by {}'.format(str(owner)))
+        #print 'ObjectManager.__init__ for', owner
+        try:
+            #print 'om1'
+            self._ownerref = weakref.ref(owner)
+            #print 'om2'
+            self._types = ObjectManager._types
+            self._currentobjectids = ObjectManager._currentobjectids
+            self._parenttidmap = ObjectManager._parenttidmap        
+            self._data = ObjectManager._data
+            self._parentuidmap = ObjectManager._parentuidmap
+            self._childrenuidmap = ObjectManager._childrenuidmap
+            log.debug('ObjectManager new instance was solicitated by {}'.format(str(owner)))
+        except BaseException as e:
+            print 'ERROR ObjectManager.__init__:', e
+            raise
         
         
     def _reset(self):
@@ -167,13 +174,13 @@ class ObjectManager(PublisherMixin):
         >>> newobj = om.new('typeid', name='nameofthenewobject')
         >>> # name will be passed to the constructor
         """
-        #try:
-        obj = self._types[typeid](*args, **kwargs)
-        objectid = self._getnewobjectid(typeid)
-        obj.oid = objectid
-        return obj
-        #except Exception as e:
-        #    raise Exception('Error on creating object! [tid={}, args={}, kwargs={}, error={}]'.format(typeid, args, kwargs, e))
+        try:
+            obj = self._types[typeid](*args, **kwargs)
+            objectid = self._getnewobjectid(typeid)
+            obj.oid = objectid
+            return obj
+        except Exception as e:
+            raise Exception('Error on creating object! [tid={}, args={}, kwargs={}, error={}]'.format(typeid, args, kwargs, e))
 
 
     def add(self, obj, parentuid=None):
@@ -212,13 +219,17 @@ class ObjectManager(PublisherMixin):
         self._data[obj.uid] = obj
         if parentuid:
             self._childrenuidmap[parentuid].append(obj.uid)  
+            
         # Sending message  
+        #print '\n\nSending message' 
+        
         try:
             self.send_message('add', objuid=obj.uid)
         except Exception as e:
             print 'ERROR [ObjectManager.add]:', obj.uid, e
             #return False
-            pass
+        print    
+        
         # TODO: Rever isso: UI.mvc_classes.track_object@DataFilter 
         try:
             nsc = obj._NO_SAVE_CLASS
@@ -257,10 +268,14 @@ class ObjectManager(PublisherMixin):
         >>> obj2 == obj
         True
         """
-        if isinstance(uid, basestring):
-            uid = App.utils.parse_string_to_uid(uid)
-        return self._data[uid]
-
+        #print 'OM.get', uid
+        try:
+            if isinstance(uid, basestring):
+                uid = App.utils.parse_string_to_uid(uid)
+            return self._data[uid]
+        except Exception as e:
+            print 'ERROR OM.get', e
+            
 
     def remove(self, uid):
         """
@@ -618,19 +633,20 @@ class ObjectManager(PublisherMixin):
                             objdict[key] = npzdata[value.lstrip(self._NPZIDENTIFIER)]    
                     # TODO: melhorar isso abaixo
                     # A ideia e que a segunda opcao (except) venha a substituir a primeira
-                    print '\ntentando criar:', tid, objdict,
+               #     print '\ntentando criar:', tid, objdict,
                     obj = self.new(tid, **objdict)
-                    print 'Ok'
+               #     print 'Ok'
                 except:
-                    print 'Error'
+               #     print 'Error'
                     try:
-                        print 'tentando de novo',
+               #         print 'tentando de novo',
                         obj = self.create_object_from_state(tid, **objdict)
-                        print 'Ok'
+               #         print 'Ok'
                     except:
-                        print 'Error'
-                        print 'ERROR [ObjectManager.load]: Could not create object for tid={} with given state: {}'.format(tid, objdict)
-                        continue
+               #         print 'Error'
+               #         print 'ERROR [ObjectManager.load]: Could not create object for tid={} with given state: {}'.format(tid, objdict)
+               #         continue
+                        pass
                 #try:
                     #print 'A:', olduid, obj.uid
                 newuidsmap[olduid] = obj.uid

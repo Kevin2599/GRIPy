@@ -349,7 +349,7 @@ class TrackView(UIViewBase):
 
     def end_dragging(self):
         #print 'Release button of canvas', self._in_canvas
-        print '\nSTART of end_dragging'
+        #print '\nSTART of end_dragging'
         if self._in_canvas == -1:
             return 
         if self._drag_mode != SASH_DRAG_DRAGGING:
@@ -401,7 +401,7 @@ class TrackView(UIViewBase):
         #           
         #d1, d2 = self.get_depth()           
         self.track.SetToolTip(wx.ToolTip('{0:.2f} - {1:.2f}'.format(d1, d2)))
-        print 'END of end_dragging'
+        #print 'END of end_dragging'
 
 
     """

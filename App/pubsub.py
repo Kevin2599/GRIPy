@@ -183,15 +183,18 @@ class PublisherMixin(object):
         # TODO: Refazer docs
         # print 'publisher: {} - topic: {} - data: {}'.format(self.get_publisher_name(), topic, data)
         try:
-            #print 'PublisherMixin.send_message'
+            #print 'PublisherMixin.send_message:'#, pub.getMsgProtocol()
             topic = self.get_publisher_name() + '.' + topic
             #print 'topic:', topic, data
             pub.sendMessage(topic, **data)
             #print 'OK send message'
         except Exception as e:
-            print 'ERROR [PublisherMixin.send_message]:', self, topic, data, e
-            print '\n\n'
-            pass
+            print 'ERROR [PublisherMixin.send_message]:', self
+            print 'At:', topic, data
+            print e.__class__, e.message, e.args, e
+            #print '\n'
+            raise
+            
 
     def get_publisher_name(self):
         try:

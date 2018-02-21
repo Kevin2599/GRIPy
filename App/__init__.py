@@ -5,7 +5,7 @@ import logging
 import wx
 import matplotlib
 matplotlib.interactive(False)
-matplotlib.use('WXAgg')
+#matplotlib.use('WXAgg')
 
 
 _APP_INIT_FILE = '.gripy_app_config.json'
