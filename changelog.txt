@@ -1,12 +1,19 @@
 ﻿Gripy Change log - (pt-br only)
-Atualizado em 17/2/2018 por Adriano (@adrianopls)
+Atualizado em 22/2/2018 por Adriano (@adrianopls)
 
 
-Versão 0.7:
-===========
+Versão 0.7.1 - 22/2/2018:
+=========================
+- Atualização imediata das cores das Partições no WellPlot quando alteradas pelo Partition Editor. 
+- Algumas correções de bugs.
+
+
+Versão 0.7 - 17/2/2018:
+=======================
 - Fim do ParentObject. A tarefa de 'sinalizar' se um objeto tem filhos e quais são seus filhos fica (totalmente) a cargo do ObjectManager.
 - Replicação da alteração acima para os Datatypes, com sensível diminuição de código.
 - Criação (redefinição) da classe DataIndex. Agora um dado de multiplas dimensões (exemplo sísmica: Iline/Xline/Tempo) pode possuir um DataIndex para cada dimensão.
+- Com o novo DataIndex se tornou possível trabalhar com Tempo e Profundidade em um mesmo WellPlot.
 - Classe DataFilter (graças ao novo DataIndex). DataFilter permite a seleção de dados em uma das dimensões.
 - A nova classe de interface NavigatorController é a responsável por fazer a seleção de dados e atualizar DataFilter. Com o botão direito em cima do rótulo de um objeto de uma classe que permita tal exibição (ex: Seismic) a opção Show Navigator é exibida.
 - Sistema de criacao de dialogos foi remodelado (de novo! [risos]).
@@ -14,11 +21,11 @@ Versão 0.7:
 - Desenvolvimento das classes para realização de Inferência (por @rtabelini e @fmoraes).
 - Correção de bugs no IO de arquivos ODT (por @rtabelini).
 - Separação dos comandos relativos à criação da Interface principal em um novo arquivo: UI.Interface (sugestão de @fmoraes).
-- Inclusão de Modelagem de Refletividade (por @apfranco).		
+- Inclusão de Modelagem de Refletividade (por @apfranco).	
+	
 
-
-Versão 0.6:
-===========
+Versão 0.6 - 1/9/2017:
+======================
 - Utilização de Messaging pattern (Pypubsub) evitando o uso de Eventos Wx e facilitando a troca de mensagens entre os objetos.
 - Unificação dos ParametersManager desenvolvidos anteriormente por @fvizeus e @adrianopls.
 - Significativa restilização do LogPlotController, incluindo:
