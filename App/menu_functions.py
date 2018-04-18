@@ -19,6 +19,9 @@ from  UI import RockTableEditor
 from UI import ReflectivityModel as RM
 from App.gripy_debug_console import DebugConsoleFrame
 
+from Plugins import AutoGenDataPlugin
+from Plugins.Tools.AutoGenUI import AutoGenDialog
+
 from DT.UOM import uom as UOM
 
 import app_utils
@@ -31,6 +34,7 @@ from scipy.signal import chirp
 from Algo import RockPhysics as RP
 from Algo import AVO
 from Algo.Modeling.Reflectivity import Reflectivity
+from Algo.Modeling.RockPhysicsCalibration import RockPhysicsCalibration
 
 
 """
@@ -569,7 +573,36 @@ class ReflectivityModel():
         else:
             wx.MessageBox('Other problems has occurred.')
             
+def Rock_Physics_Calib(event):
+    
+    OM = ObjectManager(event.GetEventObject())
+    dlg = wx.Dialog()
+    inputdesc = [
+            {'type': 'omsingle', 'name': 'gr', 'tids': ['log'], 'dispname': u'Perfil Gamma Ray'},
+            {'type': 'omsingle', 'name': 'phi', 'tids': ['log'], 'dispname': u"Perfil Porosidade"},
+            {'type': 'omsingle', 'name': 'rho', 'tids': ['log'], 'dispname': u"Perfil Densidade"},
+            {'type': 'omsingle', 'name': 'res', 'tids': ['log'], 'dispname': u"Perfil Resistividade"},
+            {'type': 'omsingle', 'name': 'tvdss', 'tids': ['log'], 'dispname': u"Perfil TVDSS"},
+            {'type': 'omsingle', 'name': 'fac', 'tids': ['log'], 'dispname': u"Perfil Facies"},
+            {'type': 'omsingle', 'name': 'mpp', 'tids': ['log'], 'dispname': u"Dados Pressao de Poro"},
+            {'type': 'omsingle', 'name': 'mtzp', 'tids': ['log'], 'dispname': u"Profundidade Pressao de Poro"},
+            {'type': 'float', 'name': 'top', 'dispname': u"Topo inferencia", 'default': '2855.2000'},
+            {'type': 'float', 'name': 'bot', 'dispname': u"Base inferencia", 'default': '3059.8000'},
+            {'type': 'float', 'name': 'topCL', 'dispname': u"Topo calibracao", 'default': '2855.2000'},
+            {'type': 'float', 'name': 'botCL', 'dispname': u"Base calibracao", 'default': '3059.8000'},
+            {'type': 'text', 'name': 'namePhiMod', 'dispname': 'Perfil Modelado Porosidade'},
+            {'type': 'text', 'name': 'nameRHoMod', 'dispname': 'Perfil Modelado Densidade'},
+            {'type': 'text', 'name': 'nameResMod', 'dispname': 'Perfil Modelado Resistividade'},
+            ]
+            
+    agd = AutoGenDialog(dlg, inputdesc)
+    agd.SetTitle('Calibracao Phi/Rho/Res')
 
+    
+    if agd.ShowModal() == wx.ID_OK:
+        
+        RockPhysicsCalibration(agd, OM)
+    
 def teste11(event):
     print 'teste 11'
 

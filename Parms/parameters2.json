@@ -312,7 +312,7 @@
             "ShalRes": 0
         },
         "dt": {
-            "Sonic": 53
+            "Sonic": 57
         },
         "dt-p": {
             "Sonic": 0
@@ -351,7 +351,7 @@
             "Sonic": 0
         },
         "dts": {
-            "ShearSonic": 1
+            "ShearSonic": 5
         },
         "dtsm": {
             "ShearSonic": 53
@@ -558,7 +558,7 @@
             "DeepRes": 0
         },
         "ild": {
-            "DeepRes": 42
+            "DeepRes": 46
         },
         "ildc": {
             "DeepRes": 0
@@ -711,7 +711,7 @@
             "Neutron": 0
         },
         "nphi": {
-            "Neutron": 77
+            "Neutron": 81
         },
         "nplc": {
             "Neutron": 0
@@ -789,7 +789,7 @@
             "CorePhi": 0
         },
         "phie": {
-            "Phi": 21
+            "Phi": 25
         },
         "phit": {
             "PhiT": 0
@@ -1098,7 +1098,7 @@
             "VertStress": 0
         },
         "sw": {
-            "Sw": 21
+            "Sw": 25
         },
         "swb": {
             "Sw": 0
@@ -1188,7 +1188,7 @@
             "TVD": 21
         },
         "tvdss": {
-            "TVDSS": 9
+            "TVDSS": 13
         },
         "tvt": {
             "Index": 0
@@ -1260,7 +1260,7 @@
             "Vsalt": 0
         },
         "vsh": {
-            "Vcl": 12
+            "Vcl": 16
         },
         "vshale": {
             "Mineral": 0
@@ -1389,7 +1389,7 @@
             "Log": 87
         },
         "dt": {
-            "Log": 53
+            "Log": 57
         },
         "dt4p": {
             "Log": 63
@@ -1407,7 +1407,7 @@
             "Log": 11
         },
         "dts": {
-            "Log": 1
+            "Log": 5
         },
         "dtsh": {
             "Log": 12
@@ -1428,6 +1428,9 @@
             "Index": 2
         },
         "etim": {
+            "Log": 4
+        },
+        "fac": {
             "Log": 4
         },
         "facies": {
@@ -1496,8 +1499,14 @@
         "hura": {
             "Log": 11
         },
+        "ico": {
+            "Log": 4
+        },
+        "ico_": {
+            "Log": 4
+        },
         "ild": {
-            "Log": 42
+            "Log": 46
         },
         "ilm": {
             "Log": 1
@@ -1539,7 +1548,7 @@
             "Log": 11
         },
         "nphi": {
-            "Log": 77
+            "Log": 81
         },
         "npor": {
             "Log": 1
@@ -1566,7 +1575,7 @@
             "Log": 74
         },
         "phie": {
-            "Log": 21
+            "Log": 25
         },
         "phin": {
             "Log": 9
@@ -1686,7 +1695,7 @@
             "Log": 4
         },
         "sw": {
-            "Log": 21
+            "Log": 25
         },
         "tcmr": {
             "Log": 11
@@ -1735,7 +1744,8 @@
             "Log": 1
         },
         "tvdss": {
-            "Index": 9
+            "Index": 11,
+            "Log": 2
         },
         "twt": {
             "Index": 20,
@@ -1778,7 +1788,7 @@
             "Log": 111
         },
         "vsh": {
-            "Log": 12
+            "Log": 16
         },
         "vxbw": {
             "Log": 3

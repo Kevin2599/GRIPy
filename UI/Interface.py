@@ -289,6 +289,10 @@ def load():
         UIM.create('menu_item_controller', mc_model.uid, 
 				label=u"Reflectivity Method", 
 				callback='App.menu_functions.ReflectivityModel'
+        )      
+        UIM.create('menu_item_controller', mc_model.uid, 
+				label=u"Rock Physics Calibration", 
+				callback='App.menu_functions.Rock_Physics_Calib'
         )
         #UIM.create('menu_item_controller', mc_model.uid,
         #               kind=wx.ITEM_SEPARATOR
