@@ -5,8 +5,8 @@ from workpage import WorkPageController
 from workpage import WorkPageModel
 from workpage import WorkPage
 
-from App import log
-from UI.uimanager import UIManager
+from app import log
+from ui.uimanager import UIManager
 
 # From Vis.Crossplot
 from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg as FigureCanvas
@@ -18,7 +18,7 @@ from matplotlib.colors import NoNorm, ListedColormap, Normalize
 import numpy as np
 from scipy import stats
 
-from Basic import Colors
+from basic import Colors
 #
 
 

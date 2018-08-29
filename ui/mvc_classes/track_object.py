@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-from OM.Manager import ObjectManager
-from OM.Objects import GenericObject
-from UI.uimanager import UIManager
-from UI.uimanager import UIControllerBase 
-from UI.uimanager import UIModelBase 
-from UI.uimanager import UIViewBase 
+from om.Manager import ObjectManager
+from om.Objects import GenericObject
+from ui.uimanager import UIManager
+from ui.uimanager import UIControllerBase 
+from ui.uimanager import UIModelBase 
+from ui.uimanager import UIViewBase 
 
 from DT.DataTypes import Density
 
@@ -23,7 +23,7 @@ import matplotlib
 from matplotlib.patches import FancyBboxPatch
 import collections                                      
                                           
-from App.app_utils import MPL_COLORS, MPL_COLORMAPS
+from app.app_utils import MPL_COLORS, MPL_COLORMAPS
 
 
 ###############################################################################

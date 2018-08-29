@@ -5,8 +5,8 @@ import imp
 import wx
 from yapsy.IPlugin import IPlugin
 from yapsy.PluginInfo import PluginInfo
-from UI.uimanager import UIManager
-from App import log
+from ui.uimanager import UIManager
+from app import log
 
 """
 A reloadable PluginInfo. Must be setted as PluginInfo class in

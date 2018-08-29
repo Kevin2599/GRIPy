@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from collections import OrderedDict
-from FileIO.PLT import PLTFile
+from fileio.PLT import PLTFile
 from wx.lib.pubsub import pub
 
 import copy

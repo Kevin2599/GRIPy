@@ -3,13 +3,14 @@ import os
 import wx
 from collections import OrderedDict
 import app_utils
+
 import gripy_classes
 import gripy_functions
-from OM.Manager import ObjectManager
-from UI.uimanager import UIManager
-from UI import Interface
-from App import DEFS 
-from App import log
+from om.Manager import ObjectManager
+from ui.uimanager import UIManager
+from ui import Interface
+from app import DEFS 
+from app import log
 from gripy_plugin_manager import GripyPluginManagerSingleton
 wx.SystemOptions.SetOption("msw.remap", '0')
 
@@ -19,6 +20,8 @@ class GripyApp(wx.App):
     _inited = False
       
     def __init__(self):
+        
+
         self.OM_file = None
         self._wx_app_state = OrderedDict(DEFS.get('wx.App'))
         class_full_name = app_utils.get_class_full_name(self)
@@ -238,7 +241,10 @@ class GripyApp(wx.App):
         
         # As indicated by https://forums.wxwidgets.org/viewtopic.php?t=32138        
         aui_manager = wx.aui.AuiManager.GetManager(self.GetTopWindow())
-        aui_manager.UnInit()        
+        try:
+            aui_manager.UnInit()        
+        except:
+            pass
         
         
     def OnExit(self):

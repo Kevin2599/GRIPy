@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from Plugins import AutoGenDataPlugin
-from Plugins.Tools.AutoGenUI import AutoGenDialog
-from OM.Manager import ObjectManager
+from plugins import AutoGenDataPlugin
+from plugins.Tools.AutoGenUI import AutoGenDialog
+from om.Manager import ObjectManager
 import wx
 
 inputdesc = [{'type': 'omsingle', 'name': 'dt', 'tids': ['log'], 'dispname': u'Sônico'},

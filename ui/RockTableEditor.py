@@ -2,15 +2,15 @@
 
 import wx
 import wx.grid
-from UI.uimanager import UIManager
+from ui.uimanager import UIManager
 import numpy as np
 from os import getcwd as cwd
 
-from OM.Manager import ObjectManager
-from Algo import RockPhysics as RP
-import App.app_utils
+from om.Manager import ObjectManager
+from algo import RockPhysics as RP
+import app.app_utils
 
-from Basic.Colors import COLOR_CYCLE_RGB
+from basic.Colors import COLOR_CYCLE_RGB
 
 
 COLOUR_DATA = wx.ColourData()
@@ -77,7 +77,7 @@ class RockTable(wx.grid.GridTableBase):
 #        fullpath_json = 'C:\\Users\\rtabelini\\Documents\\Github\\GRIPy'+json_file
         fullpath_json = cwd()+json_file
 
-        dictmin = App.app_utils.read_json_file(fullpath_json)
+        dictmin = app.app_utils.read_json_file(fullpath_json)
         
         def on_change_mineral(name, old_value, new_value, **kwargs):
             print 'new\n', name, new_value, new_value['name'], dictmin.iterkeys()

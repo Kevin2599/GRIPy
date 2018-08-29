@@ -3,7 +3,7 @@
 import wx
 
 import operator
-from OM.Manager import ObjectManager
+from om.Manager import ObjectManager
 
 _comparison_functions = {'lt': operator.lt,
                          'le': operator.le,

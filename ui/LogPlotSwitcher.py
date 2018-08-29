@@ -3,7 +3,7 @@
 import wx
 from wx.combo import BitmapComboBox
 from collections import OrderedDict
-from OM.Manager import ObjectManager
+from om.Manager import ObjectManager
 
 class Dialog(wx.Dialog):
     def __init__(self, parent, colors, color_names, i_color, welluid, lims, loguid, *args, **kwargs):

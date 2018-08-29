@@ -13,11 +13,9 @@ from collections import OrderedDict
 import numpy as np
 import zipfile
 import os
-
-import App.app_utils
-from App.pubsub import PublisherMixin
-
-from App import log
+import app.app_utils
+from app.pubsub import PublisherMixin
+from app import log
 
 
 try:
@@ -230,7 +228,7 @@ class ObjectManager(PublisherMixin):
             #return False
         print    
         
-        # TODO: Rever isso: UI.mvc_classes.track_object@DataFilter 
+        # TODO: Rever isso: ui.mvc_classes.track_object@DataFilter 
         try:
             nsc = obj._NO_SAVE_CLASS
         except:

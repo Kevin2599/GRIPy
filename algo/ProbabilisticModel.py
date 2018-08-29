@@ -6,7 +6,7 @@ from scipy import stats
 from sklearn.mixture import GMM
 from collections import defaultdict
 
-from Algo import RockPhysics as RP
+from algo import RockPhysics as RP
 from scipy.optimize import minimize
 
 _MIN_STD = 1.0E-4

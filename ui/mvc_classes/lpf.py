@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import sys
 import wx
-from UI.uimanager import UIManager
-from UI.uimanager import UIControllerBase  
-from UI.uimanager import UIModelBase
-from UI.uimanager import UIViewBase 
-from App import log
+from ui.uimanager import UIManager
+from ui.uimanager import UIControllerBase  
+from ui.uimanager import UIModelBase
+from ui.uimanager import UIViewBase 
+from app import log
 #
 ###
 import wx.dataview as dv
@@ -14,15 +14,15 @@ from wx.propgrid import PropertyGrid
 #from wx.combo import OwnerDrawnComboBox
 import wx.lib.colourdb
 from collections import OrderedDict
-from OM.Manager import ObjectManager
+from om.Manager import ObjectManager
 ###
 from track import TrackController    
 from track_object import TrackObjectController     
-from App.app_utils import parse_string_to_uid
+from app.app_utils import parse_string_to_uid
 
 from wx.adv import OwnerDrawnComboBox  
 
-import App.pubsub as pub
+import app.pubsub as pub
 
 from log_plot import LogPlotController
 

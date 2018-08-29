@@ -2,7 +2,7 @@
 import wx
 from wx.lib.scrolledpanel import ScrolledPanel
 from trackssplitter import MultiSplitterWindow
-import UI
+import ui
 import logplot_base as lpb
 
 
@@ -35,7 +35,7 @@ class TitlesPanel(ScrolledPanel):
         if color:
             self._track_title_color = color
         else:
-            self._track_title_color = UI.logplotformat.LogPlotFormat.get_default_track_header_color()
+            self._track_title_color = ui.logplotformat.LogPlotFormat.get_default_track_header_color()
         for i in range(self.tracks.lenght()):
             self.tracks.GetWindow(i).set_track_title_color(self._track_title_color)
     
@@ -64,13 +64,13 @@ class TitlesPanel(ScrolledPanel):
                 except Exception:
                     raise
             else:
-                width = UI.logplotformat.LogPlotFormat.DEFAULT_TRACK_WIDTH
+                width = ui.logplotformat.LogPlotFormat.DEFAULT_TRACK_WIDTH
                
             if not track_name:
                 track_name = str(idx+1)    
             #size = wx.Size(width, self._get_height())    
   
-            plot_label = UI.logplot_base.PlotLabel(self.tracks)
+            plot_label = ui.logplot_base.PlotLabel(self.tracks)
             plot_label.update_title(text=track_name, bgcolor=self._track_title_color)
             #TitleFigureCanvas(self.tracks, size, track_name, 
             #                                        self._track_title_color) 

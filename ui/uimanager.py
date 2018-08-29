@@ -4,17 +4,17 @@ import gc
 import wx
 import types
 from collections import OrderedDict
-import App.app_utils
-from App import log
-from App.pubsub import PublisherMixin
-from App.gripy_manager import Manager
-from OM.Manager import ObjectManager
+import app.app_utils
+from app import log
+from app.pubsub import PublisherMixin
+from app.gripy_manager import Manager
+from om.Manager import ObjectManager
 
 
 ###############################################################################
 ###############################################################################
 
-class UI_MODEL_ATTR_CLASS(App.app_utils.GripyEnum):     
+class UI_MODEL_ATTR_CLASS(app.app_utils.GripyEnum):     
     APPLICATION = 1
     USER = 2
 
@@ -57,7 +57,7 @@ class UIBase(object):
     def check_creator(self):
         # Only UIManager can create objects. Checking it!
         #print 'ZZZ'
-        caller_info = App.app_utils.get_caller_info()
+        caller_info = app.app_utils.get_caller_info()
         #print 'ZZZ2:', caller_info
         #print
         ok = False
@@ -68,7 +68,7 @@ class UIBase(object):
                 module_name = module.__name__
             func_name = ci[2]
             if module_name and func_name:
-                if module_name == 'UI.uimanager' and func_name == 'create':
+                if module_name == 'ui.uimanager' and func_name == 'create':
                     ok = True
                     break     
         if not ok:
@@ -231,7 +231,7 @@ class UIModelBase(UIBase):
                 raise Exception(msg)    
             for attr_name, attr_props in self._ATTRIBUTES.items():
                 #if attr_props.get('attr_class') not in UI_MODEL_ATTR_CLASS.__members__.values():
-                #    msg = '{}.{} has not a valid ''attr_class'' value: {}. Valid values are UI.uimanager.UI_MODEL_ATTR_CLASS members.'.format( \
+                #    msg = '{}.{} has not a valid ''attr_class'' value: {}. Valid values are ui.uimanager.UI_MODEL_ATTR_CLASS members.'.format( \
                 #        self.__class__.__name__, attr_name, 
                 #        attr_props.get('attr_class')
                 #    )
@@ -312,7 +312,7 @@ class UIModelBase(UIBase):
         # Special treatment for functions
         if type_ == types.FunctionType:
             if isinstance(value, basestring):
-                value = App.app_utils.get_function_from_string(value)
+                value = app.app_utils.get_function_from_string(value)
             if value is not None and not callable(value):
                 msg = 'ERROR: Attributes signed as \"types.FunctionType\" can recieve only \"str\" or \"types.FunctionType\" values. '
                 msg += 'Received: {} - Type: {}'.format(value, type(value))
@@ -553,7 +553,7 @@ class UIManager(Manager):
 
     def get(self, uid):
         if isinstance(uid, basestring):
-            uid = App.app_utils.parse_string_to_uid(uid)
+            uid = app.app_utils.parse_string_to_uid(uid)
         return self._data.get(uid)
 
 
@@ -674,7 +674,7 @@ class UIManager(Manager):
         return self._parentuidmap.get(uid)
                
     def remove(self, uid):
-        msg = 'Removing object from UI Manager: {}.'.format(uid)
+        msg = 'Removing object from ui Manager: {}.'.format(uid)
         log.debug(msg)
         #print '\n', msg
         self.send_message('pre_remove', objuid=uid)
@@ -992,7 +992,7 @@ class UIManager(Manager):
         msg = 'Loading Gripy application UI from file {}'.format(fullfilename)
         print msg
         log.debug(msg)
-        _state = App.app_utils.read_json_file(fullfilename)
+        _state = app.app_utils.read_json_file(fullfilename)
         self._load_application_state(_state)        
         msg = 'Gripy application UI loaded.'
         print msg
@@ -1003,7 +1003,7 @@ class UIManager(Manager):
         msg = 'Loading Gripy user UI session from file {}'.format(fullfilename)
         print msg
         log.debug(msg)
-        _state = App.app_utils.read_json_file(fullfilename)
+        _state = app.app_utils.read_json_file(fullfilename)
         self._load_user_state(_state)        
         msg = 'Gripy user UI session loaded.'
         print msg
@@ -1017,11 +1017,11 @@ class UIManager(Manager):
             state = self.get_application_state()
         except Exception:
             state = None
-            msg = 'ERROR: UI Application State cannot be gotten from UI Manager.' 
+            msg = 'ERROR: UI Application State cannot be gotten from ui Manager.' 
             log.exception(msg)
         if state is not None: 
             try:
-                App.app_utils.write_json_file(state, fullfilename)
+                app.app_utils.write_json_file(state, fullfilename)
                 msg = 'Gripy interface state was saved to file ' + fullfilename 
                 print msg
                 log.info(msg)
@@ -1034,11 +1034,11 @@ class UIManager(Manager):
             state = self.get_user_state()
         except Exception:
             state = None
-            msg = 'ERROR: UI Application State cannot be gotten from UI Manager.' 
+            msg = 'ERROR: UI Application State cannot be gotten from ui Manager.' 
             log.exception(msg)
         if state is not None: 
             try:
-                App.app_utils.write_json_file(state, fullfilename)
+                app.app_utils.write_json_file(state, fullfilename)
                 msg = 'Gripy interface state was saved to file ' + fullfilename 
                 print msg
                 log.info(msg)

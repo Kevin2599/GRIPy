@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from Plugins import DefaultPlugin
-from Plugins.Example import core
-from OM.Manager import ObjectManager
+from plugins import DefaultPlugin
+from plugins.Example import core
+from om.Manager import ObjectManager
 
 class ExamplePlugin(DefaultPlugin):
 

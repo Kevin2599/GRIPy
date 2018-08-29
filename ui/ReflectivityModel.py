@@ -2,8 +2,8 @@
 
 import wx
 from collections import OrderedDict
-from OM.Manager import ObjectManager
-from Algo.Modeling.Reflectivity import Reflectivity
+from om.Manager import ObjectManager
+from algo.modeling.Reflectivity import Reflectivity
 
 class ReflectivityModel():
     def __init__(self, event):

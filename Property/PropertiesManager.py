@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 '''
-import App
+import app
 import os 
 import json
 from collections import OrderedDict
-from App.gripy_manager import Manager
+from app.gripy_manager import Manager
 
 
 class PropertySet(object):

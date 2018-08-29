@@ -2,12 +2,12 @@
 
 import numpy as np
 
-from OM.Manager import ObjectManager
-from UI.uimanager import UIManager
-from Algo.Spectral.Spectral import STFT, WaveletTransform, MorletWavelet, PaulWavelet, DOGWavelet, RickerWavelet
+from om.Manager import ObjectManager
+from ui.uimanager import UIManager
+from algo.spectral.Spectral import STFT, WaveletTransform, MorletWavelet, PaulWavelet, DOGWavelet, RickerWavelet
 from collections import OrderedDict
 import wx
-#from UI.dialog_new import Dialog
+#from ui.dialog_new import Dialog
 
 SPECGRAM_TYPES = OrderedDict()
 SPECGRAM_TYPES['Power Spectral Density'] = 'psd'

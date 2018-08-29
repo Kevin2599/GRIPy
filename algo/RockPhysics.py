@@ -1,4 +1,4 @@
-from Algo import KusterToksoz as KT
+from algo import KusterToksoz as KT
 from numpy import sqrt
 
 import numpy as np

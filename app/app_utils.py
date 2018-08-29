@@ -8,12 +8,9 @@ import timeit
 import inspect
 import collections
 from enum import Enum  
-from App import log
-
-import FileIO
-from OM.Manager import ObjectManager
-
-
+from app import log
+import fileio
+from om.Manager import ObjectManager
 import numpy as np
 
 """
@@ -86,7 +83,7 @@ def load_segy(event, filename, new_obj_name='', comparators_list=None,
     wait = wx.BusyInfo("Loading SEG-Y file...")
     #
     try:
-        segy_file = FileIO.SEGY.SEGYFile(filename)    
+        segy_file = fileio.SEGY.SEGYFile(filename)    
         #segy_file.print_dump()
         #"""
         segy_file.read(comparators_list)
@@ -326,7 +323,7 @@ def write_json_file(py_object, fullfilename):
     directory = os.path.dirname(fullfilename)
     if not os.path.exists(directory):
         os.makedirs(directory)
-        msg = 'App.app_utils.write_json_file has created directory: {}'.format(directory)
+        msg = 'app.app_utils.write_json_file has created directory: {}'.format(directory)
         #log.debug(msg)
         print msg
     f = open(fullfilename, 'w')

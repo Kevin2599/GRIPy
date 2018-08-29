@@ -13,8 +13,8 @@ from matplotlib.transforms import Transform
 from matplotlib.figure import Figure
 from matplotlib.ticker import NullFormatter, NullLocator, MultipleLocator
 
-#from App import log
-from UI.uimanager import UIManager
+#from app import log
+from ui.uimanager import UIManager
 
 
 ###############################################################################

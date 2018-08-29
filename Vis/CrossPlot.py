@@ -11,7 +11,7 @@ from matplotlib.colors import NoNorm, ListedColormap, Normalize
 import numpy as np
 from scipy import stats
 
-from Basic import Colors
+from basic import Colors
 
 
 class CrossPlotPanel(wx.Panel):

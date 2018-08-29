@@ -3,7 +3,7 @@ from __future__ import division
 
 import numpy as np
 
-from Algo import ProbabilisticModel as PM
+from algo import ProbabilisticModel as PM
 
 class NaiveBayes(object):
     def __init__(self, classpm_key="uniform", featurepm_key="normal-1d", classpm_kwargs=None, featurepm_kwargs=None):

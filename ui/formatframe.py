@@ -3,7 +3,7 @@ import wx
 from wx.combo import OwnerDrawnComboBox
 import wx.lib.colourdb
 from collections import OrderedDict
-from OM.Manager import ObjectManager
+from om.Manager import ObjectManager
 import Parms
 import wx.dataview as dv
 import copy

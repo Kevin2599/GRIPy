@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import wx
-from OM.Manager import ObjectManager
+from om.Manager import ObjectManager
 
 class Dialog(wx.Dialog):
     

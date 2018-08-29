@@ -5,7 +5,7 @@ from collections import OrderedDict
 
 import wx.lib.agw.customtreectrl as CT
 
-from OM.Manager import ObjectManager
+from om.Manager import ObjectManager
 
 
 class Panel(wx.Panel):  # TODO: enxugar métodos repetidos (getblabla, setblabla)

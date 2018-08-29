@@ -2,13 +2,13 @@
 import os
 import wx
 import DT
-from OM.Manager import ObjectManager
-from UI.uimanager import UIManager
-from UI.uimanager import UIControllerBase 
-from UI.uimanager import UIViewBase 
-from App import log 
+from om.Manager import ObjectManager
+from ui.uimanager import UIManager
+from ui.uimanager import UIControllerBase 
+from ui.uimanager import UIViewBase 
+from app import log 
 
-#from UI.dialog_new import Dialog
+#from ui.dialog_new import Dialog
 from DT.UOM import uom as UOM
 from collections import OrderedDict
 import numpy as np

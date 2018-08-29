@@ -3,7 +3,7 @@ import wx
 import weakref
 import app_utils
 from pubsub import PublisherMixin
-from App import log
+from app import log
 
 """
 Parent class for Managers

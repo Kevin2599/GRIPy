@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
 
-from OM.Manager import ObjectManager
-from UI.uimanager import UIManager
-from UI.uimanager import UIControllerBase 
-from UI.uimanager import UIModelBase 
-from UI.uimanager import UIViewBase 
+from om.Manager import ObjectManager
+from ui.uimanager import UIManager
+from ui.uimanager import UIControllerBase 
+from ui.uimanager import UIModelBase 
+from ui.uimanager import UIViewBase 
 
 
 import wx
 import wx.propgrid as pg                                  
-import App.pubsub as pub
+import app.pubsub as pub
 
 from wx.adv import OwnerDrawnComboBox  
 
 
 from collections import OrderedDict
 import collections
-import App.pubsub as pub
+import app.pubsub as pub
 
 
 ###############################################################################

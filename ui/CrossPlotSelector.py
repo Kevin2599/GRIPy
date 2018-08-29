@@ -6,7 +6,7 @@ Created on Wed Jun 03 15:03:02 2015
 """
 
 import wx
-from OM.Manager import ObjectManager
+from om.Manager import ObjectManager
 
 
 class Panel(wx.Panel):

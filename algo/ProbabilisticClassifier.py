@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
-from Algo import ProbabilisticModel as PM
-from Algo.Classifier import Classifier
+from algo import ProbabilisticModel as PM
+from algo.Classifier import Classifier
 
 
 class ProbabilisticClassifier(Classifier):

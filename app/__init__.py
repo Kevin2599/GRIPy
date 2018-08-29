@@ -4,7 +4,7 @@ import json
 import logging
 import wx
 import matplotlib
-matplotlib.interactive(False)
+#matplotlib.interactive(False)
 #matplotlib.use('WXAgg')
 
 

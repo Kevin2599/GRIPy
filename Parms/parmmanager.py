@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #from collections import OrderedDict
-#import FileIO
-import App
+#import fileio
+import app
 import os 
 import json
 
@@ -39,16 +39,16 @@ class ParametersManager(object):
         dirname = os.path.dirname(os.path.abspath(__file__))
         dirname = dirname.encode('string-escape')
         fullname = os.path.join(dirname, GRIPY_DEFAULT_PLOT) 
-        self.PLTs['GRIPy Default Plot'] = FileIO.PLT.Reader(fullname)
+        self.PLTs['GRIPy Default Plot'] = fileio.PLT.Reader(fullname)
         # End - Gripy Default Plot
         self.PLTs['No Tracks Plot'] = None
-        self.PLTs = FileIO.PLT.getPLTFiles(self.PLTs, os.path.dirname(os.path.abspath(__file__)))
+        self.PLTs = fileio.PLT.getPLTFiles(self.PLTs, os.path.dirname(os.path.abspath(__file__)))
         """
-        self._curvetypes = App.app_utils.read_json_file(
+        self._curvetypes = app.app_utils.read_json_file(
              os.path.join(os.path.dirname(os.path.abspath(__file__)),
                           CURVETYPES_FILE)
         )
-        self._parametersdict = App.app_utils.read_json_file(
+        self._parametersdict = app.app_utils.read_json_file(
              os.path.join(os.path.dirname(os.path.abspath(__file__)),
                           PARAMETERS2_FILE)
         )   
@@ -65,7 +65,7 @@ class ParametersManager(object):
     #    return self.getPLTs().keys()
  
     #def check_and_reload_PLTs(self):
-    #    self.PLTs = FileIO.PLT.getPLTFiles(self.PLTs, os.path.dirname(os.path.abspath(__file__)))
+    #    self.PLTs = fileio.PLT.getPLTFiles(self.PLTs, os.path.dirname(os.path.abspath(__file__)))
            
     def get_curvetype_visual_props(self, curvetype_name):
         return self._curvetypes.get(curvetype_name)

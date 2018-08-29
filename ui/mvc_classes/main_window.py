@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 import wx
 import wx.aui as aui
-from UI.uimanager import UIManager
+from ui.uimanager import UIManager
 
 from wxgripy import FrameController
 from wxgripy import FrameModel
 from wxgripy import Frame
 
-from App import log
+from app import log
 
 
 

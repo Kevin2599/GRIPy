@@ -1,5 +1,5 @@
-from OM.Manager import ObjectManager
-from Plugins import SimpleDialogPlugin
+from om.Manager import ObjectManager
+from plugins import SimpleDialogPlugin
 
 
 class SynthGathers(SimpleDialogPlugin):

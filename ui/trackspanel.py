@@ -2,7 +2,7 @@
 import wx
 from trackssplitter import MultiSplitterWindow
 from wx.lib.scrolledpanel import ScrolledPanel
-import UI
+import ui
 import logplot_base as lpb 
 
 
@@ -49,7 +49,7 @@ class TracksPanel(ScrolledPanel):
                 except Exception:
                     raise
             else:
-                width = UI.logplotformat.LogPlotFormat.DEFAULT_TRACK_WIDTH
+                width = ui.logplotformat.LogPlotFormat.DEFAULT_TRACK_WIDTH
             trackPanel = lpb.TrackFigureCanvas(self.tracks, (width, self._get_height()),
                                            properties=kwargs)
             # TODO: colocar os callbacks no LogPlot e corrigir nomes das 

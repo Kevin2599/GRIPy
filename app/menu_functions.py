@@ -3,38 +3,38 @@ import wx
 import os
 import numpy as np
 import DT
-import FileIO
+import fileio
 from collections import OrderedDict
-from UI.uimanager import UIManager
-from OM.Manager import ObjectManager
+from ui.uimanager import UIManager
+from om.Manager import ObjectManager
 from Parms import ParametersManager
-from  UI import HeaderEditor
-from  UI import ImportSelector
-from  UI import ExportSelector
-from  UI import ODTEditor
-from  UI import lisloader
-from  UI import PartitionEditor
-from  UI import PartEditor
-from  UI import RockTableEditor
-from UI import ReflectivityModel as RM
-from App.gripy_debug_console import DebugConsoleFrame
+from ui import HeaderEditor
+from ui import ImportSelector
+from ui import ExportSelector
+from ui import ODTEditor
+from ui import lisloader
+from ui import PartitionEditor
+from ui import PartEditor
+from ui import RockTableEditor
+from ui import ReflectivityModel as RM
+from app.gripy_debug_console import DebugConsoleFrame
 
-from Plugins import AutoGenDataPlugin
-from Plugins.Tools.AutoGenUI import AutoGenDialog
+from plugins import AutoGenDataPlugin
+from plugins.Tools.AutoGenUI import AutoGenDialog
 
 from DT.UOM import uom as UOM
 
 import app_utils
 
-from Algo.Spectral.Spectral import STFT, WaveletTransform, MorletWavelet, PaulWavelet, DOGWavelet, RickerWavelet
-from Algo.Spectral.Hilbert import HilbertTransform												  
-from Algo.Spectral import get_synthetic_ricker, phase_rotation, frequency_phase_rotation
+from algo.spectral.Spectral import STFT, WaveletTransform, MorletWavelet, PaulWavelet, DOGWavelet, RickerWavelet
+from algo.spectral.Hilbert import HilbertTransform												  
+from algo.spectral import get_synthetic_ricker, phase_rotation, frequency_phase_rotation
 
 from scipy.signal import chirp
-from Algo import RockPhysics as RP
-from Algo import AVO
-from Algo.Modeling.Reflectivity import Reflectivity
-from Algo.Modeling.RockPhysicsCalibration import RockPhysicsCalibration
+from algo import RockPhysics as RP
+from algo import avo
+from algo.modeling.Reflectivity import Reflectivity
+from algo.modeling.RockPhysicsCalibration import RockPhysicsCalibration
 
 
 """
@@ -2675,7 +2675,7 @@ def on_import_las(event):
     else:
         fdlg.Destroy()
         return
-    las_file = FileIO.LAS.open(os.path.join(dir_name, file_name), 'r')
+    las_file = fileio.LAS.open(os.path.join(dir_name, file_name), 'r')
     las_file.read()
     hedlg = HeaderEditor.Dialog(wx.App.Get().GetTopWindow())
     hedlg.set_header(las_file.header)
@@ -2798,7 +2798,7 @@ def on_import_odt(event):
     else:
         fdlg.Destroy()
         return
-    odt_file = FileIO.ODT.open(odt_dir_name, file_proj, 'r')
+    odt_file = fileio.ODT.open(odt_dir_name, file_proj, 'r')
     hedlg = ODTEditor.Dialog()
 #    print odt_file.ndepth
     hedlg.set_header(odt_file.fileheader, odt_file.logheader, odt_file.ndepth)
@@ -3050,7 +3050,7 @@ def on_import_segy_vel(event):
         fdlg.Destroy()
         return
     
-    segy_file = FileIO.SEGY.SEGYFile(os.path.join(dir_name, file_name))
+    segy_file = fileio.SEGY.SEGYFile(os.path.join(dir_name, file_name))
     segy_file.read()
     name = segy_file.filename.rsplit('\\')[-1]
     name = name.split('.')[0]
@@ -3108,10 +3108,10 @@ def on_export_las(event):
         well = OM.get(welluid)
         header = well.attributes.get("LASheader", None)
         if header is None:
-            header = FileIO.LAS.LASWriter.getdefaultheader()
+            header = fileio.LAS.LASWriter.getdefaultheader()
         
-        header = FileIO.LAS.LASWriter.rebuildwellsection(header, data[0], units[0])
-        header = FileIO.LAS.LASWriter.rebuildcurvesection(header, names, units)
+        header = fileio.LAS.LASWriter.rebuildwellsection(header, data[0], units[0])
+        header = fileio.LAS.LASWriter.rebuildcurvesection(header, names, units)
         
         hedlg = HeaderEditor.Dialog(wx.App.Get().GetTopWindow())
         hedlg.set_header(header)
@@ -3127,10 +3127,10 @@ def on_export_las(event):
                 file_name = fdlg.GetFilename()
                 las_dir_name = fdlg.GetDirectory()
                 header = hedlg.get_header()
-                las_file = FileIO.LAS.open(os.path.join(las_dir_name, file_name), 'w')
+                las_file = fileio.LAS.open(os.path.join(las_dir_name, file_name), 'w')
                 las_file.header = header
                 las_file.data = data
-                las_file.headerlayout = FileIO.LAS.LASWriter.getprettyheaderlayout(header)
+                las_file.headerlayout = fileio.LAS.LASWriter.getprettyheaderlayout(header)
                 las_file.write()
             fdlg.Destroy()
         hedlg.Destroy()

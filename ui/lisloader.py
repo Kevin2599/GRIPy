@@ -2,9 +2,9 @@
 import wx
 import os
 import wx.dataview as dv
-from FileIO.LIS import LISFile
-from FileIO.LISWELL import LISWells, LISWell, LISWellLog
-from OM.Manager import ObjectManager
+from fileio.LIS import LISFile
+from fileio.LISWELL import LISWells, LISWell, LISWellLog
+from om.Manager import ObjectManager
 from collections import OrderedDict
 from Parms import ParametersManager
 import DT

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from Basic import Colors
+from basic import Colors
 
 import matplotlib
 matplotlib.interactive(False)

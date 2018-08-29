@@ -3,7 +3,7 @@
 import wx
 from wx.lib.agw import ultimatelistctrl as ULC
 
-from OM.Manager import ObjectManager
+from om.Manager import ObjectManager
 
 MEDIUM_GREY = wx.Colour(224, 224, 224)
 

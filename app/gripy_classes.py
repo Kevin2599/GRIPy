@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from OM.Manager import ObjectManager
-from UI.uimanager import UIManager
+from om.Manager import ObjectManager
+from ui.uimanager import UIManager
 #
 from DT.DataTypes import Well
 from DT.DataTypes import Core
@@ -34,39 +34,39 @@ from DT.DataTypes import Model1D
 from DT.DataTypes import Zone
 from DT.DataTypes import ZoneSet
 #
-from UI.mvc_classes.track_object import DataFilter
+from ui.mvc_classes.track_object import DataFilter
 #
 from DT.DTRock import Rock
 from DT.DTRock import Fluid
 #
-from UI.mvc_classes.wxgripy import FrameController, FrameModel, Frame
-from UI.mvc_classes.wxgripy import DialogController, DialogModel, Dialog
-from UI.mvc_classes.main_window import MainWindowController, MainWindowModel, MainWindow
-from UI.mvc_classes.menu_bar import MenuBarController, MenuBarModel, MenuBarView
-from UI.mvc_classes.menu import MenuController, MenuModel, MenuView
-from UI.mvc_classes.menu_item import MenuItemController, MenuItemModel, MenuItemView
-from UI.mvc_classes.tree import TreeController, TreeView
-from UI.mvc_classes.tool_bar import ToolBarController, ToolBarModel, ToolBar
-from UI.mvc_classes.tool_bar_tool import ToolBarToolController, ToolBarToolModel
-from UI.mvc_classes.status_bar import StatusBarController, StatusBarModel, StatusBar
-from UI.mvc_classes.log_plot import LogPlotController, LogPlotModel, LogPlot
-from UI.mvc_classes.track import TrackController, TrackModel, TrackView
-from UI.mvc_classes.track_object import TrackObjectController, \
+from ui.mvc_classes.wxgripy import FrameController, FrameModel, Frame
+from ui.mvc_classes.wxgripy import DialogController, DialogModel, Dialog
+from ui.mvc_classes.main_window import MainWindowController, MainWindowModel, MainWindow
+from ui.mvc_classes.menu_bar import MenuBarController, MenuBarModel, MenuBarView
+from ui.mvc_classes.menu import MenuController, MenuModel, MenuView
+from ui.mvc_classes.menu_item import MenuItemController, MenuItemModel, MenuItemView
+from ui.mvc_classes.tree import TreeController, TreeView
+from ui.mvc_classes.tool_bar import ToolBarController, ToolBarModel, ToolBar
+from ui.mvc_classes.tool_bar_tool import ToolBarToolController, ToolBarToolModel
+from ui.mvc_classes.status_bar import StatusBarController, StatusBarModel, StatusBar
+from ui.mvc_classes.log_plot import LogPlotController, LogPlotModel, LogPlot
+from ui.mvc_classes.track import TrackController, TrackModel, TrackView
+from ui.mvc_classes.track_object import TrackObjectController, \
     TrackObjectModel   
-from UI.mvc_classes.frame_nav import NavigatorController, \
+from ui.mvc_classes.frame_nav import NavigatorController, \
     NavigatorModel, Navigator
-from UI.mvc_classes.cross_plotter import CrossPlotController, CrossPlotModel, CrossPlot
-from UI.mvc_classes.workpage import WorkPageController, WorkPageModel, WorkPage
-from UI.mvc_classes.track_object import \
+from ui.mvc_classes.cross_plotter import CrossPlotController, CrossPlotModel, CrossPlot
+from ui.mvc_classes.workpage import WorkPageController, WorkPageModel, WorkPage
+from ui.mvc_classes.track_object import \
     LineRepresentationController, LineRepresentationModel, LineRepresentationView, \
     IndexRepresentationController, IndexRepresentationModel, IndexRepresentationView, \
     DensityRepresentationController, DensityRepresentationModel, DensityRepresentationView, \
     PatchesRepresentationController, PatchesRepresentationModel, PatchesRepresentationView, \
     ContourfRepresentationController, ContourfRepresentationModel, ContourfRepresentationView                          
-from UI.mvc_classes.lpf import LogPlotEditorController, LogPlotEditor        
-from UI.mvc_classes.lpf import LPETrackPanelController, LPETrackPanel
-from UI.mvc_classes.lpf import LPEObjectsPanelController, LPEObjectsPanel
-from UI.mvc_classes.propgrid import PropertyGridController, \
+from ui.mvc_classes.lpf import LogPlotEditorController, LogPlotEditor        
+from ui.mvc_classes.lpf import LPETrackPanelController, LPETrackPanel
+from ui.mvc_classes.lpf import LPEObjectsPanelController, LPEObjectsPanel
+from ui.mvc_classes.propgrid import PropertyGridController, \
                                             PropertyGridView
 #
 

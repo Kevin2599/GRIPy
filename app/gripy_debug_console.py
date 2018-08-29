@@ -5,10 +5,10 @@ import sys
 import os
 import code
 import wx
-from OM.Manager import ObjectManager
-import UI 
+from om.Manager import ObjectManager
+import ui 
 from app_utils import Chronometer
-import FileIO
+import fileio
 from collections import OrderedDict
 
 
@@ -22,12 +22,12 @@ class DebugConsole(code.InteractiveConsole):
         self._exitCmd = exitCmd
         self._clearFunc = clearFunc
         self._OM = ObjectManager(self)      
-        self._UIManager = UI.uimanager.UIManager()
+        self._UIManager = ui.uimanager.UIManager()
         
         self.namespace = {
             "self": self,
             "OM": self._OM,
-            "FileIO": FileIO,
+            "fileio": fileio,
             "UI": self._UIManager,
             "clear": self._clearFunc,
             "self": self,

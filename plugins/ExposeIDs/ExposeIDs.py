@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from Plugins import DefaultPlugin
-from Plugins.ExposeIDs import core
-from OM.Manager import ObjectManager
+from plugins import DefaultPlugin
+from plugins.ExposeIDs import core
+from om.Manager import ObjectManager
 
 
 class ExposeIDsPlugin(DefaultPlugin):
